@@ -47,6 +47,7 @@ type Category = {
   name: string;
   photo?: string;
 };
+
 type Product = {
   id: string;
   name: string;
@@ -72,10 +73,10 @@ type Operation = {
  * Создает случайный продукт (Product).
  * Принимает дату создания (строка)
  * */
-const randomId = () => Math.random().toString(36).slice(2, 10);
-const randomName = (prefix: string) => `${prefix} ${Math.floor(Math.random() * 1000)}`;
-const randomPhoto = () => `https://picsum.photos/seed/${Math.floor(Math.random() * 1000)}/200/200`;
-const randomPrice = (min = 10, max = 500) => +(Math.random() * (max - min) + min).toFixed(2);
+const randomId = (): string => Math.random().toString(36).slice(2, 10);
+const randomName = (prefix: string): string => `${prefix} ${Math.floor(Math.random() * 1000)}`;
+const randomPhoto = (): string => `https://picsum.photos/seed/${Math.floor(Math.random() * 1000)}/200/200`;
+const randomPrice = (min = 10, max = 500): number => +(Math.random() * (max - min) + min).toFixed(2);
 
 const createRandomCategory = (): Category => ({
   id: randomId(),
@@ -83,7 +84,7 @@ const createRandomCategory = (): Category => ({
   photo: Math.random() > 0.5 ? randomPhoto() : undefined,
 });
 
-export const createRandomProduct = (createdAt: string) => {
+export const createRandomProduct = (createdAt: string): Product => {
   const category = createRandomCategory();
   return {
     id: randomId(),
@@ -101,12 +102,12 @@ export const createRandomProduct = (createdAt: string) => {
  * Создает случайную операцию (Operation).
  * Принимает дату создания (строка)
  * */
-export const createRandomOperation = (createdAt: string) => {
+export const createRandomOperation = (createdAt: string): Operation => {
   const category = createRandomCategory();
   const type = Math.random() > 0.5 ? ('Cost' as const) : ('Profit' as const);
   return {
     id: randomId(),
-    name: randomName(type === 'Cost' ? 'Cost' : 'Profit'),
+    name: randomName(type),
     desc: Math.random() > 0.5 ? `Description for ${Math.floor(Math.random() * 100)}` : undefined,
     createdAt,
     amount: randomPrice(10, 1000),
