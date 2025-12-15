@@ -1,0 +1,59 @@
+/* Основа карточки */
+.op-short {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #93C5FD; 
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: "Inter", sans-serif; 
+  width: 300px;
+}
+
+.op-short--expense .op-short-amount {
+  color: #e53e3e; 
+}
+
+.op-short--income .op-short-amount {
+  color: #38a169;
+}
+
+.op-short-left {
+  max-width: 70%;
+}
+
+.op-short-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.op-short-cat {
+  font-size: 14px;
+  color: #6b6b6b;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.op-short-desc {
+  font-size: 13px;
+  color: #4a4a4a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 300px;
+  white-space: nowrap;
+}
+
+.op-short-amount {
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+}
