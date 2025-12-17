@@ -2,7 +2,7 @@ import React from 'react';
 import './ProductCardFull.css';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 
-interface ProductFullProps {
+interface ProductCardFullProps {
   image: string;
   category: string;
   title: string;
@@ -11,7 +11,14 @@ interface ProductFullProps {
   count: number;
 }
 
-export const ProductFull: React.FC<ProductFullProps> = ({ image, category, title, description, price, count }) => {
+export const ProductCardFull: React.FC<ProductCardFullProps> = ({
+  image,
+  category,
+  title,
+  description,
+  price,
+  count,
+}) => {
   return (
     <div className="product-full">
       <div className="product-full-image-wrapper">
