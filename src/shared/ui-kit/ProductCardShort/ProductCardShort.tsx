@@ -11,8 +11,6 @@ interface ProductCardShortProps {
 }
 
 export const ProductCardShort: React.FC<ProductCardShortProps> = ({ image, title, description, price, count }) => {
-  const shortDescription = description.length > 80 ? description.slice(0, 80) + '…' : description;
-
   return (
     <div className="product-card">
       <div className="product-card-image-wrapper">
@@ -21,7 +19,7 @@ export const ProductCardShort: React.FC<ProductCardShortProps> = ({ image, title
 
       <div className="product-card-content">
         <div className="product-card-title">{title}</div>
-        <div className="product-card-description">{shortDescription}</div>
+        <div className="product-card-description">{description}</div>
 
         <div className="product-card-footer">
           <div className="product-card-price">{price.toFixed(2)} ₽</div>

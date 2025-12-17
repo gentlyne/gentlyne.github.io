@@ -11,7 +11,7 @@ interface OperationShortProps {
 export const OperationShort: React.FC<OperationShortProps> = ({ amount, category, title, description }) => {
   const isExpense = amount < 0;
   return (
-    <div className={`op-short ${amount < 0 ? 'op-short--expense' : 'op-short--income'}`}>
+    <div className={`op-short ${isExpense ? 'op-short--expense' : 'op-short--income'}`}>
       <div className="op-short-left">
         <div className="op-short-title">{title}</div>
         <div className="op-short-cat">{category}</div>

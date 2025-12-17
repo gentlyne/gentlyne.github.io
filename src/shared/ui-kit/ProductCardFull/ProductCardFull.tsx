@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProductCardtFull.css';
+import './ProductCardFull.css';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 
 interface ProductFullProps {
@@ -14,12 +14,10 @@ interface ProductFullProps {
 export const ProductFull: React.FC<ProductFullProps> = ({ image, category, title, description, price, count }) => {
   return (
     <div className="product-full">
-      {/* Изображение */}
       <div className="product-full-image-wrapper">
         <img src={image} alt={title} className="product-full-image" />
       </div>
 
-      {/* Контент */}
       <div className="product-full-content">
         <div className="product-full-category">{category}</div>
         <h2 className="product-full-title">{title}</h2>
