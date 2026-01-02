@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Header } from './header';
-import { ThemeProvider } from 'src/app/theme/ThemeContext';
+import { ThemeToggle } from './ThemeToggle';
+import { ThemeProvider } from '../../../app/theme/ThemeContext';
 import React from 'react';
 
-const meta: Meta<typeof Header> = {
-  title: 'UI/Header',
-  component: Header,
+const meta: Meta<typeof ThemeToggle> = {
+  title: 'Theme/ThemeToggle',
+  component: ThemeToggle,
   decorators: [
     (Story) => (
       <ThemeProvider>
@@ -16,6 +16,6 @@ const meta: Meta<typeof Header> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Header>;
+type Story = StoryObj<typeof ThemeToggle>;
 
 export const Default: Story = {};
