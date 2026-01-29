@@ -1,23 +1,15 @@
 import React from 'react';
-import { Theme } from '../../../app/theme/ThemeContext';
 import './ThemeToggle.css';
+import { useTheme } from '../../../contexts/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
-interface ThemeToggleProps {
-  theme: Theme;
-  toggleTheme: () => void;
-}
-
-export const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, toggleTheme }) => {
-  const root: React.CSSProperties = {
-    backgroundColor: theme === 'light' ? '#f0f0f0' : '#333333',
-    color: theme === 'light' ? '#333333' : '#f0f0f0',
-  };
+export const ThemeToggle: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
+  const { t } = useTranslation();
 
   return (
-    <div style={root}>
-      <button className="theme-toggle" onClick={toggleTheme}>
-        {theme === 'light' ? '☀️ Light' : '🌙 Dark'}
-      </button>
-    </div>
+    <button className="theme-toggle" onClick={toggleTheme}>
+      {theme === 'dark' ? '🌙 ' + t('theme.dark') : '☀️ ' + t('theme.light')}
+    </button>
   );
 };

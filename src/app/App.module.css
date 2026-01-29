@@ -1,0 +1,19 @@
+/* light theme */
+body.light {
+  background-color: #ffffff;
+  color: #1e293b;
+  --background-color: #ffffff;
+  --text-color: #1e293b;
+  --border-color: #93C5FD;
+}
+
+/* dark theme */
+body.dark {
+  background-color: #282c34;
+  color: #f8fafc;
+  --background-color: #282c34;
+  --text-color: #f8fafc;
+  --border-color: #93C5FD;
+}
+
+

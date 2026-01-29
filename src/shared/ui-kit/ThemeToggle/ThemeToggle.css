@@ -2,8 +2,11 @@
   padding: 6px 12px;
   font-size: 14px;
   border-radius: 6px;
-  border: 1px solid var(--border-color);
+
   background: transparent;
   color: var(--text-color);
+  border: 1px solid var(--border-color);
+
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }

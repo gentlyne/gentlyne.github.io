@@ -1,0 +1,26 @@
+.language-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.language-toggle__button {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+&:hover:not(&--active) {
+    background-color: var(--border-color);
+}
+
+.language-toggle__button--active {
+    background-color: var(--card-bg);
+    font-weight: 600;
+    cursor: default;
+}
+

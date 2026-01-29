@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeToggle } from './ThemeToggle';
-import { ThemeProvider } from '../../../app/theme/ThemeContext';
+import { ThemeProvider } from '../../../contexts/ThemeContext';
 import React from 'react';
 
 const meta: Meta<typeof ThemeToggle> = {
-  title: 'Theme/ThemeToggle',
+  title: 'UI/ThemeToogle',
   component: ThemeToggle,
   decorators: [
     (Story) => (

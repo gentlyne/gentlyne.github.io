@@ -1,18 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from './header';
-import { ThemeProvider } from 'src/app/theme/ThemeContext';
-import React from 'react';
 
 const meta: Meta<typeof Header> = {
   title: 'UI/Header',
   component: Header,
-  decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <Story />
-      </ThemeProvider>
-    ),
-  ],
 };
 
 export default meta;

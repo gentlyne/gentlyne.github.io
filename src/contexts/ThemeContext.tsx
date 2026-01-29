@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
+import cn from 'clsx';
+import s from '../app/App.module.css';
 
 export type Theme = 'light' | 'dark';
 
@@ -18,8 +20,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   // применяем тему ко всему проекту
   React.useEffect(() => {
-    document.body.setAttribute('backgroundColor', theme === 'light' ? '#f0f0f0' : '#333333');
-    document.body.setAttribute('color', theme === 'light' ? '#333333' : '#f0f0f0');
+    document.body.setAttribute('class', cn(s.body, theme == 'light' ? s.light : s.dark));
   }, [theme]);
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
