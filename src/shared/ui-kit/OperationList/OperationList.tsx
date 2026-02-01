@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { createRandomOperation, Operation } from '../../../homeworks/ts1/3_write';
-// import { Operation } from '../../../entities/operation';
+import { createRandomOperation } from '../../../homeworks/ts1/3_write';
 import { OperationFull } from '../OperationFull/OperationFull';
 import './OperationList.scss';
 
