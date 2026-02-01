@@ -1,23 +1,28 @@
 import React from 'react';
-import './modal.css';
+import ReactDOM from 'react-dom';
+import './Modal.scss';
 
 interface ModalProps {
   visible: boolean;
-  children?: React.ReactNode;
-  onClose?: () => void;
+  onClose: () => void;
+  children: React.ReactNode;
 }
 
-export const Modal: React.FC<ModalProps> = ({ visible, children, onClose }) => {
+export const Modal: React.FC<ModalProps> = ({ visible, onClose, children }) => {
   if (!visible) return null;
 
-  return (
-    <div className="modal-overlay">
-      <div className="modal-window">
-        <button className="modal-close" aria-label="Close modal" onClick={onClose}>
-          ✕
+  return ReactDOM.createPortal(
+    <div className="modal">
+      <div className="modal__mask" onClick={onClose} />
+
+      <div className="modal__content">
+        <button className="modal__close" onClick={onClose} aria-label="Close modal">
+          ×
         </button>
+
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
