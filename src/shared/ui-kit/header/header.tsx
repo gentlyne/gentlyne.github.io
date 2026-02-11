@@ -1,17 +1,24 @@
-import React from 'react';
-import './header.css';
-import { Logo } from '../logo/logo';
-import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
-import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
+import React, { memo, ReactNode } from 'react';
+import styles from './header.module.scss';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  leftSlot?: ReactNode;
+  rightSlot?: ReactNode;
+  className?: string;
+  children?: ReactNode;
+}
+
+/**
+ * Layout Component
+ * Использует Slot Pattern для гибкости размещения элементов
+ */
+export const Header = memo(({ leftSlot, rightSlot, className = '', children }: HeaderProps) => {
   return (
-    <header className="header">
-      <Logo />
-      <div className="header-controls">
-        <LanguageToggle />
-        <ThemeToggle />
-      </div>
+    <header className={`${styles.header} ${className}`}>
+      <div className={styles.header__left}>{leftSlot}</div>
+      {children && <div className={styles.header__center}>{children}</div>}
+      <div className={styles.header__right}>{rightSlot}</div>
     </header>
   );
-};
+});
+Header.displayName = 'Header';

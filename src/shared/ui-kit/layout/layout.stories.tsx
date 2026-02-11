@@ -1,21 +1,41 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Layout } from './layout';
+import { Header } from '../Header/Header';
 
-const meta: Meta<typeof Layout> = {
+// Простейший кастомный Footer для примера
+const CustomFooter = () => <div>© 2026 App</div>;
+
+export default {
   title: 'UI/Layout',
   component: Layout,
-  argTypes: {
-    children: {
-      control: 'text',
-      description: 'Содержимое основного блока',
-    },
+  parameters: {
+    layout: 'fullscreen',
   },
-  args: {
-    children: 'Это тестовый контент внутри Layout',
-  },
+} as ComponentMeta<typeof Layout>;
+
+const Template: ComponentStory<typeof Layout> = (args) => <Layout {...args} />;
+
+// Стандартный Layout с дефолтным Header
+export const Default = Template.bind({});
+Default.args = {
+  children: (
+    <>
+      <p>Основной контент размещается здесь...</p>
+      <p>Ещё один абзац для проверки правильности расположения текста.</p>
+    </>
+  ),
 };
 
-export default meta;
-type Story = StoryObj<typeof Layout>;
-
-export const Default: Story = {};
+// Layout с кастомным Header и Footer
+export const WithCustomSlots = Template.bind({});
+WithCustomSlots.args = {
+  headerSlot: <Header leftSlot={<div>Logo</div>} rightSlot={<div>Menu</div>} />,
+  footerSlot: <CustomFooter />,
+  children: (
+    <>
+      <p>В этом макете используются настраиваемые поля для верхнего и нижнего колонтитулов.</p>
+      <p>Гибкий зазор между секциями применен правильно.</p>
+    </>
+  ),
+};
