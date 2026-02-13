@@ -49,45 +49,7 @@ code {
     }
 }
 
-/* light theme */
-body.TgQa33lrPxp89aTfKSjz {
-  background-color: #ffffff;
-  color: #1e293b;
-  --background-color: #ffffff;
-  --text-color: #1e293b;
-  --border-color: #93C5FD;
-}
-
-/* dark theme */
-body.GHiNpHAkHoiv5oQ56ECn {
-  background-color: #282c34;
-  color: #f8fafc;
-  --background-color: #282c34;
-  --text-color: #f8fafc;
-  --border-color: #93C5FD;
-}
-
-
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 12px 20px;
-  border-bottom: 1px solid #93C5FD;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.header-module_header-Ktyjj{display:flex;align-items:center;justify-content:space-between;background-color:rgba(0,0,0,0);color:var(--text-color);padding:1rem 2rem;box-shadow:0 2px 4px rgba(0,0,0,.05);border-bottom:1px solid #93c5fd}.header-module_header__left-HySpO,.header-module_header__center-IDYNC,.header-module_header__right-e1QKd{display:flex;align-items:center;gap:1.5rem}.header-module_header__center-IDYNC{flex:1;justify-content:center;text-align:center}.header-module_header__right-e1QKd{justify-content:flex-end}
 .logo {
   display: flex;
   align-items: center;
@@ -109,18 +71,6 @@ body.GHiNpHAkHoiv5oQ56ECn {
   font-weight: 600;
 }
 
-.theme-toggle {
-  padding: 6px 12px;
-  font-size: 14px;
-  border-radius: 6px;
-
-  background: transparent;
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
 .language-toggle {
   display: flex;
   gap: 4px;
@@ -146,6 +96,38 @@ body.GHiNpHAkHoiv5oQ56ECn {
     font-weight: 600;
     cursor: default;
 }
+
+
+.theme-toggle {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+/* light theme */
+body.TgQa33lrPxp89aTfKSjz {
+  background-color: #ffffff;
+  color: #1e293b;
+  --background-color: #ffffff;
+  --text-color: #1e293b;
+  --border-color: #93C5FD;
+}
+
+/* dark theme */
+body.GHiNpHAkHoiv5oQ56ECn {
+  background-color: #282c34;
+  color: #f8fafc;
+  --background-color: #282c34;
+  --text-color: #f8fafc;
+  --border-color: #93C5FD;
+}
+
 
 
 
