@@ -7,10 +7,11 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
+    "deploy": "npx gh-pages -d dist",
     "test": "jest src",
     "lint": "eslint src --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o dist/ui-kit"
   },
   "license": "MIT",
   "devDependencies": {
@@ -24,7 +25,7 @@
     "@storybook/addon-mdx-gfm": "^7.6.17",
     "@storybook/blocks": "^7.6.17",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^7.6.17",
+    "@storybook/react": "^7.6.21",
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/jest": "^29.5.2",
@@ -64,8 +65,14 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
+    "@rc-component/picker": "^1.9.0",
+    "antd": "^6.0.0",
     "clsx": "^1.2.1",
+    "dayjs": "^1.11.19",
+    "formik": "^2.2.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^16.5.4",
+    "unchanged": "^2.2.1"
   }
 }
