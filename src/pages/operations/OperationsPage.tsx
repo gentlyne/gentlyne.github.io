@@ -27,7 +27,7 @@ export const OperationsPage: React.FC = () => {
   const [dateRange, setDateRange] = useState<[Dayjs, Dayjs] | null>(null);
 
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(8);
+  const [pageSize, setPageSize] = useState(10);
 
   const [sortField, setSortField] = useState<'id' | 'createdAt' | 'updatedAt' | 'name' | 'date'>('createdAt');
 

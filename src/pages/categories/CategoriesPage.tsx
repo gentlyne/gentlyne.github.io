@@ -21,7 +21,7 @@ export const CategoriesPage: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<Category | null>(null);
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(8);
+  const [pageSize, setPageSize] = useState(10);
   const [searchName, setSearchName] = useState('');
   const [createdRange, setCreatedRange] = useState<[Dayjs, Dayjs] | null>(null);
   const [updatedRange, setUpdatedRange] = useState<[Dayjs, Dayjs] | null>(null);
