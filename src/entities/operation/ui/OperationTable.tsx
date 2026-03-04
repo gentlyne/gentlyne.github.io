@@ -39,7 +39,7 @@ export const OperationsTable = memo(
         onChange={onChange}
         columns={[
           { title: t(`operation.table.name`), dataIndex: 'name', sorter: true },
-          { title: t(`operation.table.amount`), dataIndex: 'amount', sorter: true, render: formatMoney },
+          { title: t(`operation.table.amount`), dataIndex: 'amount', render: formatMoney },
           {
             title: t(`operation.table.type`),
             dataIndex: 'type',
