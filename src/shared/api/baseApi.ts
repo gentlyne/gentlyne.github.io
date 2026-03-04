@@ -5,7 +5,7 @@ export const baseApi = createApi({
   reducerPath: 'api',
 
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://19429ba06ff2.vps.myjino.ru/api',
+    baseUrl: 'https://19429ba06ff2.vps.myjino.ru/api',
 
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).auth.token;
