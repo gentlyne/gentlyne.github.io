@@ -21,7 +21,7 @@ export const LoginField = memo(({ className, name, autoFocusElement, disabled }:
   return (
     <FormItem
       className={cn(s.root, className)}
-      title={t(`forms.AuthForm.email.title`)}
+      title={t(`auth.signin.form.email.title`)}
       required
       validateStatus={validateStatus}
       help={help}
@@ -35,7 +35,7 @@ export const LoginField = memo(({ className, name, autoFocusElement, disabled }:
         onChange={field.input.onChange}
         onBlur={field.input.onBlur}
         value={field.input.value}
-        placeholder={t(`forms.AuthForm.email.placeholder`)}
+        placeholder={t(`auth.signin.form.email.placeholder`)}
       />
     </FormItem>
   );

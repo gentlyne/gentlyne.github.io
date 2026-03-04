@@ -1,4 +1,5 @@
 import { Dayjs } from 'dayjs';
+import { Category } from 'src/entities/category/types';
 import { FormProps } from 'src/features/forms/types';
 
 export interface OperationFormValues {
@@ -7,6 +8,7 @@ export interface OperationFormValues {
   category: string;
   description: string;
   date: Dayjs;
+  type: 'Cost' | 'Profit';
 }
 
 export type OperationFormErrors = Record<keyof OperationFormValues, string>;

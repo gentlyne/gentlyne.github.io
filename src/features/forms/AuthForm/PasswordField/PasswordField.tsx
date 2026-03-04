@@ -25,7 +25,7 @@ export const PasswordField = memo(
     return (
       <FormItem
         className={cn(s.root, className)}
-        title={title ?? t(`forms.AuthForm.password.title`)}
+        title={title ?? t(`auth.signin.form.password.title`)}
         required
         validateStatus={validateStatus}
         help={help}
@@ -39,7 +39,7 @@ export const PasswordField = memo(
           onChange={field.input.onChange}
           onBlur={field.input.onBlur}
           value={field.input.value}
-          placeholder={placeholder ?? t(`forms.AuthForm.password.placeholder`)}
+          placeholder={placeholder ?? t(`auth.signin.form.password.placeholder`)}
           iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
         />
       </FormItem>

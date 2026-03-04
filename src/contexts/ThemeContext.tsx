@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import cn from 'clsx';
 import s from '../app/App.module.css';
+import { ConfigProvider, theme as antdTheme } from 'antd';
 
 export type Theme = 'light' | 'dark';
 
@@ -12,18 +13,34 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>(() => {
+    return (localStorage.getItem('theme') as Theme) || 'light';
+  });
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => {
+      const next = prev === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', next);
+      return next;
+    });
   };
 
-  // применяем тему ко всему проекту
   React.useEffect(() => {
     document.body.setAttribute('class', cn(s.body, theme == 'light' ? s.light : s.dark));
   }, [theme]);
 
-  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
+  const themeConfig = useMemo(
+    () => ({
+      algorithm: theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+    }),
+    [theme]
+  );
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <ConfigProvider theme={themeConfig}> {children}</ConfigProvider>
+    </ThemeContext.Provider>
+  );
 };
 
 export const useTheme = () => {

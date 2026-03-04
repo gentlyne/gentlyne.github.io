@@ -16,7 +16,7 @@ export const SignInForm = memo(({ className, formManager, formElement, autoFocus
       <LoginField name="email" autoFocusElement={autoFocusElement} disabled={disabled} />
       <PasswordField name="password" disabled={disabled} />
       <Button type="primary" htmlType="submit">
-        {t(`forms.AuthForm.signin.title`)}
+        {t(`auth.signin.form.submit`)}
       </Button>
     </form>
   );

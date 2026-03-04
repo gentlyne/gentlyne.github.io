@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import i18n from '../app/i18n';
 
 export type Language = 'ru' | 'en';
@@ -11,11 +11,15 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('ru');
+  const [language, setLanguage] = useState<Language>(() => (localStorage.getItem('language') as Language) || 'ru');
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
 
   const changeLanguage = (lang: Language) => {
+    localStorage.setItem('language', lang);
     setLanguage(lang);
-    i18n.changeLanguage(lang);
   };
 
   return <LanguageContext.Provider value={{ language, changeLanguage }}>{children}</LanguageContext.Provider>;

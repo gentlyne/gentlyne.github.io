@@ -101,7 +101,7 @@ export const isNotDefinedDate = (date?: Dayjs): boolean => !date?.isValid();
 export const isNotDefinedNumber = (number?: number): boolean => !number;
 
 export const isLongEnough = (word: string, minLength: number = MIN_LENGTH_PASSWORD): boolean =>
-  word?.length > minLength;
+  word?.length >= minLength;
 
 export const isValidEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

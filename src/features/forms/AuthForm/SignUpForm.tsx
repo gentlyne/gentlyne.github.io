@@ -18,11 +18,11 @@ export const SignUpForm = memo(({ className, formManager, formElement, autoFocus
       <PasswordField
         name="confirmPassword"
         disabled={disabled}
-        title={t(`forms.AuthForm.confirmPassword.title`)}
-        placeholder={t(`forms.AuthForm.confirmPassword.placeholder`)}
+        title={t(`auth.signup.form.confirmPassword.title`)}
+        placeholder={t(`auth.signup.form.confirmPassword.placeholder`)}
       />
       <Button type="primary" htmlType="submit">
-        {t(`forms.AuthForm.signup.title`)}
+        {t(`auth.signup.submit`)}
       </Button>
     </form>
   );

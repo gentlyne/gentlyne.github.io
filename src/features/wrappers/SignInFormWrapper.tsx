@@ -7,7 +7,7 @@ import type { AuthFormValues } from '../forms/AuthForm/types';
 
 import { isLongEnough, isNotDefinedString, isTooLongLength, isValidEmail } from '../../utils/validation';
 
-import type { InputRef } from 'antd';
+import { Form, type InputRef } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { I18nWrapper } from './I18nWrapper';
 
@@ -16,7 +16,7 @@ interface SignInFormWrapperProps {
   disabled?: boolean;
   formRef?: React.MutableRefObject<HTMLFormElement>;
   inputRef?: React.MutableRefObject<InputRef>;
-  onSubmit?: (values: AuthFormValues) => Promise<void> | void;
+  onSubmit?: (values: AuthFormValues, form?: any) => Promise<void> | void;
 }
 
 const defaultValues: AuthFormValues = {
@@ -30,22 +30,23 @@ export const SignInFormWrapper: React.FC<SignInFormWrapperProps> = ({
   disabled = false,
 }) => {
   const { t } = useTranslation();
+  const [form] = Form.useForm<{ name: string }>();
+
   const validate = (values: AuthFormValues) => {
     const errors: Partial<Record<keyof AuthFormValues, string>> = {};
 
-    if (isNotDefinedString(values.email)) errors.email = t(`forms.AuthForm.email.errors.required`);
-    else if (isTooLongLength(values.email, 255)) errors.email = t(`forms.AuthForm.email.errors.tooLong`);
-    else if (!isValidEmail(values.email)) errors.email = t(`forms.AuthForm.email.errors.invalid`);
+    if (isNotDefinedString(values.email)) errors.email = t(`auth.signin.form.email.errors.required`);
+    else if (isTooLongLength(values.email, 255)) errors.email = t(`auth.signin.form.email.errors.tooLong`);
+    else if (!isValidEmail(values.email)) errors.email = t(`auth.signin.form.email.errors.invalid`);
 
-    if (isNotDefinedString(values.password)) errors.password = t(`forms.AuthForm.password.errors.required`);
-    else if (!isLongEnough(values.password)) errors.password = t(`forms.AuthForm.password.errors.tooShort`);
+    if (isNotDefinedString(values.password)) errors.password = t(`auth.signin.form.password.errors.required`);
+    else if (!isLongEnough(values.password)) errors.password = t(`auth.signin.form.password.errors.tooShort`);
 
     return errors;
   };
 
   const handleSubmit = async (values: AuthFormValues, helpers: FormikHelpers<AuthFormValues>) => {
-    console.log('Auth submit:', values);
-    await onSubmit?.(values);
+    await onSubmit?.(values, form);
     helpers.resetForm();
     helpers.setSubmitting(false);
   };
