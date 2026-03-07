@@ -1,15 +1,14 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
 import { Input } from 'antd';
-import { useTranslation } from 'react-i18next';
 import { FormItem } from '../../../../shared/ui-kit/FormItem';
 import { getValidates } from '../../../../utils/validation';
-import { AuthFormProps } from '../types';
+import { FormProps } from '../../types';
 import s from './PasswordField.module.sass';
 import { useFormikField } from '../../../../shared/lib/forms/useFormikField';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
-export type PasswordFieldProps = Pick<AuthFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
+export type PasswordFieldProps = Pick<FormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
   name: string;
   title?: string;
   placeholder?: string;
@@ -17,19 +16,12 @@ export type PasswordFieldProps = Pick<AuthFormProps, 'className' | 'disabled' | 
 
 export const PasswordField = memo(
   ({ className, name, autoFocusElement, disabled, title, placeholder }: PasswordFieldProps) => {
-    const { t } = useTranslation();
     const field = useFormikField<string>(name);
 
     const { validateStatus, help } = getValidates(field.error, field.touched, field.submitCount);
 
     return (
-      <FormItem
-        className={cn(s.root, className)}
-        title={title ?? t(`auth.signin.form.password.title`)}
-        required
-        validateStatus={validateStatus}
-        help={help}
-      >
+      <FormItem className={cn(s.root, className)} title={title} required validateStatus={validateStatus} help={help}>
         <Input.Password
           disabled={disabled}
           ref={autoFocusElement}
@@ -39,7 +31,7 @@ export const PasswordField = memo(
           onChange={field.input.onChange}
           onBlur={field.input.onBlur}
           value={field.input.value}
-          placeholder={placeholder ?? t(`auth.signin.form.password.placeholder`)}
+          placeholder={placeholder}
           iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
         />
       </FormItem>

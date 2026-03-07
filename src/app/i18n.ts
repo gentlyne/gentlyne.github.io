@@ -1,4 +1,4 @@
-import i18n from 'i18next';
+import i18n, { use } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 const resources = {
@@ -127,7 +127,7 @@ const resources = {
               placeholder: 'Enter your password',
               errors: {
                 required: 'Password required',
-                tooShort: 'Mix length is  6',
+                tooShort: 'Min length is 6',
               },
             },
             submit: 'Sign In',
@@ -147,6 +147,30 @@ const resources = {
                 notConfirm: 'Passwords are not equals',
               },
             },
+          },
+        },
+        reset: {
+          title: 'Change Password',
+          form: {
+            title: {
+              oldPassword: 'Current password',
+              newPassword: 'New password',
+              confirmPassword: 'Confirm Password',
+            },
+            placeholder: {
+              oldPassword: 'Enter your current password',
+              newPassword: 'Enter new password',
+              confirmPassword: 'Enter your new password again',
+            },
+            required: {
+              oldPassword: 'Current password required',
+              newPassword: 'New password required',
+              confirmPassword: 'Confirm password required',
+            },
+            tooShort: 'Min length is 6',
+            notConfirm: 'New password is not equal with confirm',
+            submit: 'Save new password',
+            success: 'Password change success',
           },
         },
         logout: 'Logout',
@@ -392,6 +416,30 @@ const resources = {
             },
           },
         },
+        reset: {
+          title: 'Смена пароля',
+          form: {
+            title: {
+              oldPassword: 'Текущий пароль',
+              newPassword: 'Новый пароль',
+              confirmPassword: 'Подверждение нового пароля',
+            },
+            placeholder: {
+              oldPassword: 'Введите ваш текущий пароль',
+              newPassword: 'Введите новый пароль',
+              confirmPassword: 'Введите заново новый пароль',
+            },
+            required: {
+              oldPassword: 'Текущий пароль обязателен для заполнения',
+              newPassword: 'Новый пароль обязателен для заполнения',
+              confirmPassword: 'Подвержение пароля обязателен',
+            },
+            tooShort: 'Минимальная длина - 6',
+            notConfirm: 'Новый пароль не совпадает с подвержением',
+            submit: 'Сохранить новый пароль',
+            success: 'Пароль успешно изменен',
+          },
+        },
         logout: 'Выход',
       },
       message: {
@@ -490,7 +538,7 @@ const resources = {
   },
 };
 
-i18n.use(initReactI18next).init({
+use(initReactI18next).init({
   resources,
   lng: 'ru',
   fallbackLng: 'en',

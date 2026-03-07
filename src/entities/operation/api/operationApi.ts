@@ -8,23 +8,7 @@ export const operationApi = baseApi.injectEndpoints({
       query: (filters = {}) => {
         const params = new URLSearchParams();
 
-        if (filters?.ids) params.append('ids', JSON.stringify(filters.ids));
-
-        if (filters?.name) params.append('name', filters.name);
-
-        if (filters?.categoryIds) params.append('categoryIds', JSON.stringify(filters.categoryIds));
-
-        if (filters?.type) params.append('type', JSON.stringify(filters.type));
-
-        if (filters?.pagination) params.append('pagination', JSON.stringify(filters.pagination));
-
-        if (filters?.date) params.append('date', JSON.stringify(filters.date));
-
-        if (filters?.createdAt) params.append('createdAt', JSON.stringify(filters.createdAt));
-
-        if (filters?.updatedAt) params.append('updatedAt', JSON.stringify(filters.updatedAt));
-
-        if (filters?.sorting) params.append('sorting', JSON.stringify(filters.sorting));
+        Object.entries(filters).forEach(([key, value]) => (value ? params.append(key, JSON.stringify(value)) : null));
 
         return {
           url: `/operations?${params.toString()}`,

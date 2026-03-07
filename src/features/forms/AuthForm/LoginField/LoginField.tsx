@@ -4,11 +4,11 @@ import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from '../../../../shared/ui-kit/FormItem';
 import { getValidates } from '../../../../utils/validation';
-import { AuthFormProps } from '../types';
+import { FormProps } from '../../types';
 import s from './LoginField.module.sass';
 import { useFormikField } from '../../../../shared/lib/forms/useFormikField';
 
-export type LoginFieldProps = Pick<AuthFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
+export type LoginFieldProps = Pick<FormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
   name: string;
 };
 

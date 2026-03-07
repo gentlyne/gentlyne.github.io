@@ -1,13 +1,14 @@
-import { ServerErrors, ErrorCode, ServerErrorItem } from 'src/shared/types/server';
+import { ServerErrors, ErrorCode, ServerErrorItem, HttpError } from 'src/shared/types/server';
 import type { MessageInstance } from 'antd/es/message/interface';
 import type { FormInstance } from 'antd';
 
 export const handleServerErrors = (
-  err: any,
+  err: HttpError | void,
   t: (input: string) => string,
   message: MessageInstance,
   form?: FormInstance
 ) => {
+  console.log(err);
   if (!err || !err.data?.errors) {
     message.error('Unknown error');
     return;

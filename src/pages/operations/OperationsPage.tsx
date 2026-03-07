@@ -44,7 +44,7 @@ export const OperationsPage: React.FC = () => {
   }, [name, type, dateRange]);
 
   const { data, isLoading, refetch } = useGetOperationsQuery({
-    name: name ? JSON.stringify(name) : undefined,
+    name: name ?? undefined,
     type,
     pagination: {
       pageSize,

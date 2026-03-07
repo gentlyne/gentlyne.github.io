@@ -25,6 +25,11 @@ export const UserMenu = () => {
       onClick: () => navigate('/profile'),
     },
     {
+      key: 'changePassword',
+      label: t(`auth.reset.title`),
+      onClick: () => navigate('/changePassword'),
+    },
+    {
       key: 'logout',
       label: t(`auth.logout`),
       onClick: () => {

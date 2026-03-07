@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
+import type { FormInstance } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { SignUpFormWrapper } from 'src/features/wrappers/SignUpFormWrapper';
@@ -8,7 +9,7 @@ import { useSignupMutation } from 'src/features/auth/model/authApi';
 import { useAppDispatch } from 'src/app/hooks';
 import { setToken } from 'src/features/auth/model/authSlice';
 
-import type { AuthFormValues } from 'src/features/forms/AuthForm/types';
+import type { SignUpFormValues } from 'src/features/forms/AuthForm/SignUpForm';
 import { generateCommandId } from 'src/shared/lib/commandId';
 import { handleServerErrors } from 'src/shared/lib/forms/handleServerErrors';
 import { baseApi } from 'src/shared/api/baseApi';
@@ -23,7 +24,7 @@ export const SignUpPage: React.FC = () => {
 
   const [signup, { isLoading }] = useSignupMutation();
 
-  const handleSubmit = async (values: AuthFormValues, form?: any) => {
+  const handleSubmit = async (values: SignUpFormValues, form?: FormInstance) => {
     try {
       const commandId = await generateCommandId(values.email);
       const result = await signup({

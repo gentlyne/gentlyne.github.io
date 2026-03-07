@@ -25,3 +25,8 @@ export type ServerErrorItem = {
 export type ServerErrors = {
   errors: ServerErrorItem[];
 };
+
+export type HttpError = {
+  status: number;
+  data?: ServerErrors;
+};

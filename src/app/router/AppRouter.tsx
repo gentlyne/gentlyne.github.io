@@ -4,9 +4,10 @@ import { SignInPage } from 'src/pages/auth/SignInPage';
 import { SignUpPage } from 'src/pages/auth/SignUpPage';
 import { ProfilePage } from 'src/pages/profile/ProfilePage';
 import { OperationsPage } from 'src/pages/operations/OperationsPage';
-import { ProtectedRoute } from 'src/components/ProtectedRoute';
+import { ProtectedRoute } from './ProtectedRoute';
 import { AppLayout } from 'src/widgets/layout/AppLayout';
 import { CategoriesPage } from 'src/pages/categories/CategoriesPage';
+import { ChangePasswordPage } from 'src/pages/auth/ChangePasswordPage';
 
 export const AppRouter = () => {
   return (
@@ -22,6 +23,14 @@ export const AppRouter = () => {
             element={
               <ProtectedRoute>
                 <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/changePassword"
+            element={
+              <ProtectedRoute>
+                <ChangePasswordPage />
               </ProtectedRoute>
             }
           />

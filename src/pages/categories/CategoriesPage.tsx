@@ -16,7 +16,6 @@ import { useMessage } from 'src/contexts/MessageContext';
 
 export const CategoriesPage: React.FC = () => {
   const token = useAppSelector((state) => state.auth.token);
-  const isAuth = !!token;
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<Category | null>(null);
@@ -42,6 +41,8 @@ export const CategoriesPage: React.FC = () => {
 
   const { t } = useTranslation();
   const message = useMessage();
+
+  const isAuth = !!token;
 
   useEffect(() => {
     setPage(1);

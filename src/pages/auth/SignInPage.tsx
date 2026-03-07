@@ -8,7 +8,7 @@ import { useSigninMutation } from 'src/features/auth/model/authApi';
 import { useAppDispatch } from 'src/app/hooks';
 import { setToken } from 'src/features/auth/model/authSlice';
 
-import type { AuthFormValues } from 'src/features/forms/AuthForm/types';
+import type { SignInFormValues } from 'src/features/forms/AuthForm/SignInForm';
 import { handleServerErrors } from 'src/shared/lib/forms/handleServerErrors';
 import { baseApi } from 'src/shared/api/baseApi';
 import { useTranslation } from 'react-i18next';
@@ -22,7 +22,7 @@ export const SignInPage: React.FC = () => {
 
   const [signin, { isLoading }] = useSigninMutation();
 
-  const handleSubmit = async (values: AuthFormValues, form?: any) => {
+  const handleSubmit = async (values: SignInFormValues, form?: any) => {
     try {
       const result = await signin({
         email: values.email,
