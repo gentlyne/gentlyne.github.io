@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { DashboardOutlined, WalletOutlined, UserOutlined } from '@ant-design/icons';
+import { UserOutlined, GroupOutlined, TransactionOutlined } from '@ant-design/icons';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAppSelector } from 'src/app/hooks';
@@ -17,12 +17,12 @@ export const AppSidebar = () => {
   const items = [
     {
       key: '/',
-      icon: <DashboardOutlined />,
+      icon: <TransactionOutlined />,
       label: t(`operation.name`),
     },
     {
       key: '/categories',
-      icon: <WalletOutlined />,
+      icon: <GroupOutlined />,
       label: t(`category.name`),
     },
     !token
