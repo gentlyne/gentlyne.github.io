@@ -53,10 +53,14 @@ const resources = {
           required: {
             name: 'Name is required',
           },
+          tooLong: {
+            name: 'Max length of name is 50',
+          },
           error: {
             upload: 'Upload failed',
             submit: 'Operation failed',
           },
+          save: 'Save',
         },
         message: {
           deleted: {
@@ -306,8 +310,8 @@ const resources = {
         },
         form: {
           title: {
-            edit: 'Редактирование категорию',
-            create: 'Создание категорию',
+            edit: 'Редактирование категории',
+            create: 'Создание категории',
           },
           label: {
             name: 'Название',
@@ -320,10 +324,14 @@ const resources = {
           required: {
             name: 'Название должно быть заполнено',
           },
+          tooLong: {
+            name: 'Максимальная длина названия - 50',
+          },
           error: {
             upload: 'Ошибка загрузки изображения',
             submit: 'Операция была не выполнена',
           },
+          save: 'Сохранить',
         },
         message: {
           deleted: {
