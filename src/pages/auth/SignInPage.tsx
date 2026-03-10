@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, type FormInstance } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { SignInFormWrapper } from 'src/features/wrappers/SignInFormWrapper';
@@ -22,7 +22,7 @@ export const SignInPage: React.FC = () => {
 
   const [signin, { isLoading }] = useSigninMutation();
 
-  const handleSubmit = async (values: SignInFormValues, form?: any) => {
+  const handleSubmit = async (values: SignInFormValues, form?: FormInstance) => {
     try {
       const result = await signin({
         email: values.email,

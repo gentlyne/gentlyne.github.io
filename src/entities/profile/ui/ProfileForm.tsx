@@ -1,11 +1,11 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, type FormInstance } from 'antd';
 import type { Profile } from '../model/types';
 import { useTranslation } from 'react-i18next';
 
 interface ProfileFormProps {
   profile: Profile;
-  onSubmit: (name: string, form?: any) => void;
+  onSubmit: (name: string, form?: FormInstance) => void;
   loading?: boolean;
 }
 

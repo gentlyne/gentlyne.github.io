@@ -49,7 +49,7 @@ export const CategoriesTable = memo(
           title: t(`category.table.actions`),
           key: 'actions',
           hidden: !isAuth,
-          render: (_: any, record: Category) => (
+          render: (_: unknown, record: Category) => (
             <Space>
               <Button onClick={() => onEdit(record)}>{t(`category.table.edit`)}</Button>
               <Popconfirm title={t(`category.table.confimDelete`)} onConfirm={() => onDelete(record.id)}>

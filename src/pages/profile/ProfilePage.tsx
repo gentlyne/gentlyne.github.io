@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Spin } from 'antd';
+import { Card, type FormInstance, Spin } from 'antd';
 import { useGetProfileQuery, useUpdateProfileMutation } from 'src/features/auth/model/authApi';
 import { ProfileForm } from 'src/entities/profile/ui/ProfileForm';
 import { handleServerErrors } from 'src/shared/lib/forms/handleServerErrors';
@@ -20,7 +20,7 @@ export const ProfilePage: React.FC = () => {
     return <div>Profile not found</div>;
   }
 
-  const handleSubmit = async (name: string, form?: any) => {
+  const handleSubmit = async (name: string, form?: FormInstance) => {
     try {
       await updateProfile({ name: name }).unwrap();
       message.success(t(`forms.ProfileForm.updated`));

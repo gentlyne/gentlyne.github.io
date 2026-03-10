@@ -1,5 +1,4 @@
 import { Dayjs } from 'dayjs';
-import { Category } from 'src/entities/category/types';
 import { FormProps } from 'src/features/forms/types';
 
 export interface OperationFormValues {
