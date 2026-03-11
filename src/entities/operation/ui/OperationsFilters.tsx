@@ -22,7 +22,12 @@ export const OperationsFilters = memo(
     return (
       <Row gutter={16} style={{ marginBottom: 16 }}>
         <Col>
-          <Input placeholder={t(`operation.filter.name`)} value={name} onChange={(e) => setName(e.target.value)} />
+          <Input
+            placeholder={t(`operation.filter.name`)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            allowClear
+          />
         </Col>
 
         <Col>
