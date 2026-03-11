@@ -8,17 +8,7 @@ export const categoryApi = baseApi.injectEndpoints({
       query: (filters = {}) => {
         const params = new URLSearchParams();
 
-        if (filters?.name) params.append('name', JSON.stringify(filters.name));
-
-        if (filters?.ids) params.append('ids', JSON.stringify(filters.ids));
-
-        if (filters?.pagination) params.append('pagination', JSON.stringify(filters.pagination));
-
-        if (filters?.createdAt) params.append('createdAt', JSON.stringify(filters.createdAt));
-
-        if (filters?.updatedAt) params.append('updatedAt', JSON.stringify(filters.updatedAt));
-
-        if (filters?.sorting) params.append('sorting', JSON.stringify(filters.sorting));
+        Object.entries(filters).forEach(([key, value]) => (value ? params.append(key, JSON.stringify(value)) : null));
 
         return {
           url: `/categories?${params.toString()}`,
