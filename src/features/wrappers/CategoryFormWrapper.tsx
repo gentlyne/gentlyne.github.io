@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Formik } from 'formik';
 import type { FormikHelpers } from 'formik';
 
-import { CategoryForm, type CategoryFormValues } from '../forms/CategoryFrom';
+import { CategoryForm, type CategoryFormValues } from '../forms/CategoryForm';
 
 import { isNotDefinedString, isTooLongLength } from '../../utils/validation';
 

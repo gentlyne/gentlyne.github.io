@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Spin } from 'antd';
 import type { Dayjs } from 'dayjs';
-import { useAppSelector } from 'src/hooks';
+import { useAppSelector, useDebounce } from 'src/hooks';
 
 import {
   useGetOperationsQuery,
   useCreateOperationMutation,
   useUpdateOperationMutation,
   useDeleteOperationMutation,
-} from 'src/entities/operation/api/operationApi';
+  OperationsSortingType,
+} from 'src/entities/operation/api';
 
-import { useGetCategoriesQuery } from 'src/entities/category/api/categoryApi';
+import { useGetCategoriesQuery } from 'src/entities/category/api';
 
-import { OperationsFilters, OperationsTable, OperationModal } from 'src/entities/operation/ui';
+import { OperationsTable, OperationModal, OperationsFilters } from 'src/entities/operation/ui';
 
 import type { Operation } from 'src/entities/operation/types';
 import { useMessage } from 'src/contexts/MessageContext';
@@ -29,7 +30,7 @@ export const OperationsPage: React.FC = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
-  const [sortField, setSortField] = useState<'id' | 'createdAt' | 'updatedAt' | 'name' | 'date'>('createdAt');
+  const [sortField, setSortField] = useState<OperationsSortingType>('createdAt');
 
   const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('DESC');
 
@@ -38,13 +39,14 @@ export const OperationsPage: React.FC = () => {
 
   const message = useMessage();
   const { t } = useTranslation();
+  const debouncedName = useDebounce(name, 500);
 
   useEffect(() => {
     setPageNumber(1);
   }, [name, type, dateRange]);
 
   const { data, isLoading, refetch } = useGetOperationsQuery({
-    name: name ?? undefined,
+    name: debouncedName ?? undefined,
     type,
     pagination: {
       pageSize,
@@ -80,7 +82,7 @@ export const OperationsPage: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: FormData) => {
     try {
       if (editing) {
         await updateOperation({ id: editing.id, body: values }).unwrap();

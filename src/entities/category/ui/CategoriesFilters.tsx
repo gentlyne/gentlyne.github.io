@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Row, Col, Input, Button, DatePicker } from 'antd';
+import { Row, Col, Input, DatePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
 import { useTranslation } from 'react-i18next';
 
@@ -23,7 +23,6 @@ export const CategoriesFilters = memo(
     setCreatedRange,
     updatedRange,
     setUpdatedRange,
-    onApply,
   }: CategoriesFiltersProps) => {
     const { t } = useTranslation();
 
@@ -50,9 +49,6 @@ export const CategoriesFilters = memo(
             value={updatedRange}
             onChange={(dates) => setUpdatedRange(dates as [Dayjs, Dayjs] | null)}
           />
-        </Col>
-        <Col>
-          <Button onClick={onApply}>{t(`category.filter.apply`)}</Button>
         </Col>
       </Row>
     );

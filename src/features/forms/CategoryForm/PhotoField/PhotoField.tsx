@@ -9,7 +9,7 @@ import s from './PhotoField.module.sass';
 import { useFormikField } from 'src/shared/lib/forms/useFormikField';
 import type { UploadProps } from 'antd/es/upload';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { useUploadFileMutation } from 'src/entities/category/api/uploadApi';
+import { useUploadFileMutation } from 'src/entities/category/api';
 import { UploadRequestOption } from 'rc-upload/lib/interface';
 import type { FormikHandlers } from 'formik';
 

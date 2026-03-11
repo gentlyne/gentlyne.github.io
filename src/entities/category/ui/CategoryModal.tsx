@@ -1,7 +1,7 @@
 import { Modal } from 'antd';
 import { Category } from '../types';
 import React from 'react';
-import { CategoryFormValues } from 'src/features/forms/CategoryFrom';
+import { CategoryFormValues } from 'src/features/forms/CategoryForm';
 import { CategoryFormWrapper } from 'src/features/wrappers';
 import { useTranslation } from 'react-i18next';
 

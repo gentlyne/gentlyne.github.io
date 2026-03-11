@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { Operation } from '../types';
 import { Category } from 'src/entities/category/types';
 import React from 'react';
-import { OperationFormValues } from 'src/features/forms/OperationForm/types';
+import { OperationFormValues } from 'src/features/forms/OperationForm';
 import { OperationFormWrapper } from 'src/features/wrappers/OperationFormWrapper';
 import { useTranslation } from 'react-i18next';
 

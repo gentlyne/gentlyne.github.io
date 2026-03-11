@@ -13,7 +13,7 @@ import { DateField } from './DateField';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'antd';
 import { TypeField } from './TypeField';
-import { useGetCategoriesQuery } from 'src/entities/category/api/categoryApi';
+import { useGetCategoriesQuery } from 'src/entities/category/api';
 
 const SearchCategotyValues = {
   searchName: '',

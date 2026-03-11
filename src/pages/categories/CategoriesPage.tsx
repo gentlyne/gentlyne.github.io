@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Spin } from 'antd';
-import { useAppSelector } from 'src/hooks';
+import { useAppSelector, useDebounce } from 'src/hooks';
 import {
   useGetCategoriesQuery,
   useDeleteCategoryMutation,
   useCreateCategoryMutation,
   useUpdateCategoryMutation,
-} from 'src/entities/category/api/categoryApi';
+  CategorySortingType,
+} from 'src/entities/category/api';
 import { Category } from 'src/entities/category/types';
 import { CategoryModal, CategoriesFilters, CategoriesTable } from 'src/entities/category/ui';
 import { Dayjs } from 'dayjs';
-import { CategorySortingType } from 'src/entities/category/api/types';
 import { useTranslation } from 'react-i18next';
 import { useMessage } from 'src/contexts/MessageContext';
 
@@ -27,9 +27,11 @@ export const CategoriesPage: React.FC = () => {
   const [sortField, setSortField] = useState<CategorySortingType>('id');
   const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('ASC');
 
+  const debouncedName = useDebounce(searchName, 500);
+
   const { data, isLoading, refetch } = useGetCategoriesQuery({
     pagination: { pageNumber: page, pageSize },
-    name: searchName ?? undefined,
+    name: debouncedName ?? undefined,
     createdAt: createdRange ? { gte: createdRange[0].toISOString(), lte: createdRange[1].toISOString() } : undefined,
     updatedAt: updatedRange ? { gte: updatedRange[0].toISOString(), lte: updatedRange[1].toISOString() } : undefined,
     sorting: { field: sortField, type: sortOrder },

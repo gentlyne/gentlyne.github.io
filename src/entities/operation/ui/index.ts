@@ -1,3 +1,3 @@
 export * from './OperationModal';
-export * from './OperationTable';
+export * from './OperationsTable';
 export * from './OperationsFilters';

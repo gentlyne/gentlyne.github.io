@@ -13,7 +13,7 @@ interface OperationsTableProps {
     total: number;
     showSizeChanger?: boolean;
   };
-  onChange: any;
+  onChange: (pagination: any, _: any, sorter: any) => void;
   onEdit: (operation: Operation) => void;
   onDelete: (id: string) => void;
 }
