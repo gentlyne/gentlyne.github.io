@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { SignUpFormWrapper } from 'src/features/wrappers/SignUpFormWrapper';
 
-import { useSignupMutation } from 'src/features/auth/model/authApi';
-import { useAppDispatch } from 'src/app/hooks';
-import { setToken } from 'src/features/auth/model/authSlice';
+import { useSignupMutation } from 'src/entities/user/api/authApi';
+import { useAppDispatch } from 'src/hooks';
+import { setToken } from 'src/entities/user/model/authSlice';
 
 import type { SignUpFormValues } from 'src/features/forms/AuthForm/SignUpForm';
 import { generateCommandId } from 'src/shared/lib/commandId';

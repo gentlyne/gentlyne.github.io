@@ -1,13 +1,5 @@
 import { baseApi } from 'src/shared/api/baseApi';
-import type {
-  AuthResult,
-  SignUpBody,
-  SignInBody,
-  Profile,
-  UpdateProfileBody,
-  ChangePasswordBody,
-  ChangePasswordResult,
-} from '../types';
+import type { AuthResult, SignUpBody, SignInBody, ChangePasswordBody, ChangePasswordResult } from './types';
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -27,20 +19,6 @@ export const authApi = baseApi.injectEndpoints({
       }),
     }),
 
-    getProfile: builder.query<Profile, void>({
-      query: () => '/profile',
-      providesTags: ['Profile'],
-    }),
-
-    updateProfile: builder.mutation<Profile, UpdateProfileBody>({
-      query: (body) => ({
-        url: '/profile',
-        method: 'PATCH',
-        body,
-      }),
-      invalidatesTags: ['Profile'],
-    }),
-
     changePassword: builder.mutation<ChangePasswordResult, ChangePasswordBody>({
       query: (body) => ({
         url: '/profile/change-password',
@@ -51,10 +29,4 @@ export const authApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {
-  useSignupMutation,
-  useSigninMutation,
-  useGetProfileQuery,
-  useUpdateProfileMutation,
-  useChangePasswordMutation,
-} = authApi;
+export const { useSignupMutation, useSigninMutation, useChangePasswordMutation } = authApi;

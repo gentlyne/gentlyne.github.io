@@ -3,11 +3,13 @@ import cn from 'clsx';
 import { ProfileFormProps } from './types';
 import { NameField } from './NameField';
 import s from './ProfileForm.module.sass';
-import { AboutField } from './AboutField';
+import { Button } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 export const ProfileForm = memo(
   ({ className, formManager, formElement, autoFocusElement, disabled }: ProfileFormProps) => {
-    const { values, touched, errors, submitCount, handleBlur, handleSubmit, handleChange } = formManager;
+    const { values, touched, errors, submitCount, handleSubmit, handleBlur, handleChange } = formManager;
+    const { t } = useTranslation();
 
     return (
       <form ref={formElement} onSubmit={handleSubmit} className={cn(s.root, className)}>
@@ -21,15 +23,9 @@ export const ProfileForm = memo(
           touched={touched.name}
           disabled={disabled}
         />
-        <AboutField
-          onBlur={handleBlur}
-          onChange={handleChange}
-          value={values.about}
-          errors={errors.about}
-          submitCount={submitCount}
-          touched={touched.about}
-          disabled={disabled}
-        />
+        <Button type="primary" htmlType="submit">
+          {t(`forms.ProfileForm.submit.title`)}
+        </Button>
       </form>
     );
   }

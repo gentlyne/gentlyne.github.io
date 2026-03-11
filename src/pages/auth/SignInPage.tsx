@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { SignInFormWrapper } from 'src/features/wrappers/SignInFormWrapper';
 
-import { useSigninMutation } from 'src/features/auth/model/authApi';
-import { useAppDispatch } from 'src/app/hooks';
-import { setToken } from 'src/features/auth/model/authSlice';
+import { useSigninMutation } from 'src/entities/user/api/authApi';
+import { useAppDispatch } from 'src/hooks';
+import { setToken } from 'src/entities/user/model/authSlice';
 
 import type { SignInFormValues } from 'src/features/forms/AuthForm/SignInForm';
 import { handleServerErrors } from 'src/shared/lib/forms/handleServerErrors';

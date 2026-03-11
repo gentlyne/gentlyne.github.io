@@ -9,7 +9,6 @@ import { isNotDefinedDate, isNotDefinedNumber, isNotDefinedString, isTooLongLeng
 
 import type { InputRef } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { I18nWrapper } from './I18nWrapper';
 import dayjs from 'dayjs';
 
 interface OperationFormWrapperProps {
@@ -71,14 +70,12 @@ export const OperationFormWrapper: React.FC<OperationFormWrapperProps> = ({
       enableReinitialize
     >
       {(formManager) => (
-        <I18nWrapper>
-          <OperationForm
-            formElement={formRef}
-            formManager={formManager}
-            autoFocusElement={inputRef}
-            disabled={disabled}
-          />
-        </I18nWrapper>
+        <OperationForm
+          formElement={formRef}
+          formManager={formManager}
+          autoFocusElement={inputRef}
+          disabled={disabled}
+        />
       )}
     </Formik>
   );

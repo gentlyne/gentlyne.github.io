@@ -15,7 +15,6 @@ import {
 
 import { Form, type InputRef, type FormInstance } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { I18nWrapper } from './I18nWrapper';
 
 interface SignUpFormWrapperProps {
   initialValues?: SignUpFormValues;
@@ -68,9 +67,7 @@ export const SignUpFormWrapper: React.FC<SignUpFormWrapperProps> = ({
   return (
     <Formik<SignUpFormValues> initialValues={initialValues} validate={validate} onSubmit={handleSubmit}>
       {(formManager) => (
-        <I18nWrapper>
-          <SignUpForm formElement={formRef} formManager={formManager} autoFocusElement={inputRef} disabled={disabled} />
-        </I18nWrapper>
+        <SignUpForm formElement={formRef} formManager={formManager} autoFocusElement={inputRef} disabled={disabled} />
       )}
     </Formik>
   );

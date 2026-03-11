@@ -5,8 +5,8 @@ import { Logo } from 'src/shared/ui-kit/logo/logo';
 import { LanguageToggle } from 'src/shared/ui-kit/LanguageToggle/LanguageToggle';
 import { ThemeToggle } from 'src/shared/ui-kit/ThemeToggle/ThemeToggle';
 
-import { UserMenu } from 'src/entities/profile/ui/UserMenu';
-import { useAppSelector } from 'src/app/hooks';
+import { UserMenu } from 'src/widgets/UserMenu/UserMenu';
+import { useAppSelector } from 'src/hooks';
 import { AuthMenu } from '../authMenu/AuthMenu';
 
 export const AppHeader = () => {

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import type { User } from '../../../entities/profile/types';
+import type { Profile } from '../types';
 
-interface Props {
-  user?: User;
+interface UserAvatarProps {
+  profile?: Profile;
 }
 
-export const UserAvatar = ({ user }: Props) => {
-  if (!user) {
+export const UserAvatar = ({ profile }: UserAvatarProps) => {
+  if (!profile) {
     return <Avatar icon={<UserOutlined />} />;
   }
 
-  return <Avatar>{user.email[0].toUpperCase()}</Avatar>;
+  return <Avatar>{profile.email[0].toUpperCase()}</Avatar>;
 };

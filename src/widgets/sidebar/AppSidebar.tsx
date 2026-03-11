@@ -3,7 +3,7 @@ import { Layout, Menu } from 'antd';
 import { UserOutlined, GroupOutlined, TransactionOutlined } from '@ant-design/icons';
 
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAppSelector } from 'src/app/hooks';
+import { useAppSelector } from 'src/hooks';
 import { useTranslation } from 'react-i18next';
 
 const { Sider } = Layout;

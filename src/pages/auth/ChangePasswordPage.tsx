@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { ChangePasswordFormWrapper } from 'src/features/wrappers';
 import { ChangePasswordFormValues } from 'src/features/forms/AuthForm/ChangePasswordForm';
 
-import { useChangePasswordMutation } from 'src/features/auth/model/authApi';
+import { useChangePasswordMutation } from 'src/entities/user/api/authApi';
 
 import { handleServerErrors } from 'src/shared/lib/forms/handleServerErrors';
 import { useTranslation } from 'react-i18next';

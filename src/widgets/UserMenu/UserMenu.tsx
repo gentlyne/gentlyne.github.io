@@ -2,18 +2,17 @@ import { Dropdown, Space, Typography } from 'antd';
 import type { MenuProps } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
-import { logout } from 'src/features/auth/model/authSlice';
-import { useAppDispatch } from 'src/app/hooks';
+import { logout } from 'src/entities/user/model/authSlice';
+import { useAppDispatch, useProfile } from 'src/hooks';
 
 import { UserAvatar } from 'src/entities/profile/ui/UserAvatar';
 import React from 'react';
 import { baseApi } from 'src/shared/api/baseApi';
-import { useProfile } from 'src/entities/profile/model/hooks';
 import { useTranslation } from 'react-i18next';
 
 export const UserMenu = () => {
   const dispatch = useAppDispatch();
-  const { profile: user } = useProfile();
+  const { profile } = useProfile();
   const { t } = useTranslation();
 
   const navigate = useNavigate();
@@ -42,9 +41,9 @@ export const UserMenu = () => {
   return (
     <Dropdown menu={{ items }} trigger={['click']}>
       <Space style={{ cursor: 'pointer' }}>
-        <UserAvatar user={user} />
+        <UserAvatar profile={profile} />
 
-        <Typography.Text>{user?.email}</Typography.Text>
+        <Typography.Text>{profile?.email}</Typography.Text>
       </Space>
     </Dropdown>
   );

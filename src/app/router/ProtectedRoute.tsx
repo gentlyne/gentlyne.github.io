@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import React, { ReactNode } from 'react';
-import { useAppSelector } from '../hooks';
+import { useAppSelector } from 'src/hooks';
 
 interface Props {
   children: ReactNode;

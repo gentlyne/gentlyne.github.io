@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Spin } from 'antd';
-import { useAppSelector } from 'src/app/hooks';
+import { useAppSelector } from 'src/hooks';
 import {
   useGetCategoriesQuery,
   useDeleteCategoryMutation,

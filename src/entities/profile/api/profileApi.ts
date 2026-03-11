@@ -1,5 +1,6 @@
-import { Profile, UpdateProfileBody } from '../../profile/model/types';
+import { Profile } from '../types';
 import { baseApi } from 'src/shared/api/baseApi';
+import { UpdateProfileBody } from './types';
 
 export const profileApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

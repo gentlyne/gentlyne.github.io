@@ -1,4 +1,4 @@
-import { useGetProfileQuery } from '../../user/api/profileApi';
+import { useGetProfileQuery } from 'src/entities/profile/api';
 
 export const useProfile = () => {
   const result = useGetProfileQuery();

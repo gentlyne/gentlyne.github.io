@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Spin } from 'antd';
 import type { Dayjs } from 'dayjs';
-import { useAppSelector } from 'src/app/hooks';
+import { useAppSelector } from 'src/hooks';
 
 import {
   useGetOperationsQuery,
@@ -19,7 +19,7 @@ import { useMessage } from 'src/contexts/MessageContext';
 import { useTranslation } from 'react-i18next';
 
 export const OperationsPage: React.FC = () => {
-  const token = useAppSelector((state) => state.auth.token);
+  const token = useAppSelector((state) => state.auth?.token);
   const isAuth = !!token;
 
   const [name, setName] = useState('');

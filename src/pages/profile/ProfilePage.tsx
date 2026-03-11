@@ -1,10 +1,11 @@
 import React from 'react';
 import { Card, type FormInstance, Spin } from 'antd';
-import { useGetProfileQuery, useUpdateProfileMutation } from 'src/features/auth/model/authApi';
-import { ProfileForm } from 'src/entities/profile/ui/ProfileForm';
+import { useGetProfileQuery, useUpdateProfileMutation } from 'src/entities/profile/api';
 import { handleServerErrors } from 'src/shared/lib/forms/handleServerErrors';
 import { useTranslation } from 'react-i18next';
 import { useMessage } from 'src/contexts/MessageContext';
+import { ProfileFormWrapper } from 'src/features/wrappers';
+import { ProfileFormValues } from 'src/features/forms/ProfileForm';
 
 export const ProfilePage: React.FC = () => {
   const { data: profile, isLoading: loadingProfile } = useGetProfileQuery();
@@ -20,9 +21,9 @@ export const ProfilePage: React.FC = () => {
     return <div>Profile not found</div>;
   }
 
-  const handleSubmit = async (name: string, form?: FormInstance) => {
+  const handleSubmit = async (values: ProfileFormValues, form?: FormInstance) => {
     try {
-      await updateProfile({ name: name }).unwrap();
+      await updateProfile({ name: values.name }).unwrap();
       message.success(t(`forms.ProfileForm.updated`));
     } catch (err) {
       handleServerErrors(err, t, message, form);
@@ -31,7 +32,7 @@ export const ProfilePage: React.FC = () => {
 
   return (
     <Card title={t(`profile.title`)} style={{ maxWidth: 600, margin: '50px auto' }}>
-      <ProfileForm profile={profile} onSubmit={handleSubmit} loading={updating} />
+      <ProfileFormWrapper initialValues={profile} onSubmit={handleSubmit} disabled={updating} />
       <div style={{ marginTop: 20 }}>
         <strong>{t(`forms.ProfileForm.email`)}:</strong> {profile.email}
         <br />
