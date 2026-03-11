@@ -25,7 +25,6 @@ code {
 
 
 
-.OperationModal-module_root-lOxrf{font-family:Arial,sans-serif;font-weight:600;font-size:1.25rem}
 .header-module_header-Ktyjj{display:flex;align-items:center;justify-content:space-between;background-color:rgba(0,0,0,0);color:var(--text-color);padding:1rem 2rem;box-shadow:0 2px 4px rgba(0,0,0,.05);border-bottom:1px solid #93c5fd}.header-module_header__left-HySpO,.header-module_header__center-IDYNC,.header-module_header__right-e1QKd{display:flex;align-items:center;gap:1.5rem}.header-module_header__center-IDYNC{flex:1;justify-content:center;text-align:center}.header-module_header__right-e1QKd{justify-content:flex-end}
 .logo {
   display: flex;
@@ -104,6 +103,13 @@ body.GHiNpHAkHoiv5oQ56ECn {
   --text-color: #f8fafc;
   --border-color: #93C5FD;
 }
+
+
+
+
+
+
+
 
 
 
