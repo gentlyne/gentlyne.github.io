@@ -2,6 +2,8 @@ import React, { memo, useMemo } from 'react';
 import { Table, Button, Space, Popconfirm } from 'antd';
 import { Category } from '../types';
 import { useTranslation } from 'react-i18next';
+import { CategorySortingOrderType } from '../api';
+import { type SorterResult } from 'antd/es/table/interface';
 
 interface CategoriesTableProps {
   data: Category[];
@@ -9,8 +11,8 @@ interface CategoriesTableProps {
   onEdit: (category: Category) => void;
   onDelete: (id: string) => void;
   sortField: string;
-  sortOrder: 'ASC' | 'DESC';
-  onSort: (field: string, order: 'ASC' | 'DESC') => void;
+  sortOrder: CategorySortingOrderType;
+  onSort: (field: string, order: CategorySortingOrderType) => void;
   total: number;
   pageNumber: number;
   pageSize: number;
@@ -67,9 +69,9 @@ export const CategoriesTable = memo(
         dataSource={data}
         columns={columns}
         rowKey="id"
-        onChange={(_, __, sorter: any) => {
+        onChange={(_, __, sorter: SorterResult<Category>) => {
           if (sorter?.field && sorter?.order) {
-            onSort(sorter.field, sorter.order === 'ascend' ? 'ASC' : 'DESC');
+            onSort(sorter.field.toString(), sorter.order === 'ascend' ? 'ASC' : 'DESC');
           }
         }}
         pagination={{

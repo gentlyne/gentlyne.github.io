@@ -8,7 +8,8 @@ import {
   useCreateOperationMutation,
   useUpdateOperationMutation,
   useDeleteOperationMutation,
-  OperationsSortingType,
+  OperationsSortingFieldType,
+  OperationsSortingOrderType,
 } from 'src/entities/operation/api';
 
 import { useGetCategoriesQuery } from 'src/entities/category/api';
@@ -21,7 +22,6 @@ import { useTranslation } from 'react-i18next';
 
 export const OperationsPage: React.FC = () => {
   const token = useAppSelector((state) => state.auth?.token);
-  const isAuth = !!token;
 
   const [name, setName] = useState('');
   const [type, setType] = useState<'Cost' | 'Profit' | undefined>();
@@ -30,12 +30,14 @@ export const OperationsPage: React.FC = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
-  const [sortField, setSortField] = useState<OperationsSortingType>('createdAt');
+  const [sortField, setSortField] = useState<OperationsSortingFieldType>('createdAt');
 
-  const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('DESC');
+  const [sortOrder, setSortOrder] = useState<OperationsSortingOrderType>('DESC');
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<Operation | null>(null);
+
+  const isAuth = !!token;
 
   const message = useMessage();
   const { t } = useTranslation();

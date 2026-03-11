@@ -1,12 +1,14 @@
 import { Operation } from '../types';
 
-export type OperationsSortingType = 'id' | 'createdAt' | 'updatedAt' | 'name' | 'date';
+export type OperationsSortingFieldType = 'id' | 'createdAt' | 'updatedAt' | 'name' | 'date';
+export type OperationsSortingOrderType = 'ASC' | 'DESC';
+export type OperationsType = 'Cost' | 'Profit';
 
 export type OperationsFilters = {
   ids?: string[];
   name?: string;
   categoryIds?: string[];
-  type?: 'Cost' | 'Profit';
+  type?: OperationsType;
   pagination?: {
     pageSize?: number;
     pageNumber?: number;
@@ -14,7 +16,7 @@ export type OperationsFilters = {
   date?: { gte?: string; lte?: string };
   createdAt?: { gte?: string; lte?: string };
   updatedAt?: { gte?: string; lte?: string };
-  sorting?: { type: 'ASC' | 'DESC'; field: OperationsSortingType };
+  sorting?: { type: OperationsSortingOrderType; field: OperationsSortingFieldType };
 };
 
 export type OperationsResponse = {
@@ -25,7 +27,7 @@ export type OperationsResponse = {
     total: number;
   };
   sorting: {
-    type: 'ASC' | 'DESC';
-    field: 'id' | 'createdAt' | 'updatedAt' | 'name';
+    type: OperationsSortingOrderType;
+    field: OperationsSortingFieldType;
   };
 };

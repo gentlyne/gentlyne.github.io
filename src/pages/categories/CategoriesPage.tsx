@@ -6,7 +6,8 @@ import {
   useDeleteCategoryMutation,
   useCreateCategoryMutation,
   useUpdateCategoryMutation,
-  CategorySortingType,
+  CategorySortingFieldType,
+  CategorySortingOrderType,
 } from 'src/entities/category/api';
 import { Category } from 'src/entities/category/types';
 import { CategoryModal, CategoriesFilters, CategoriesTable } from 'src/entities/category/ui';
@@ -24,8 +25,8 @@ export const CategoriesPage: React.FC = () => {
   const [searchName, setSearchName] = useState('');
   const [createdRange, setCreatedRange] = useState<[Dayjs, Dayjs] | null>(null);
   const [updatedRange, setUpdatedRange] = useState<[Dayjs, Dayjs] | null>(null);
-  const [sortField, setSortField] = useState<CategorySortingType>('id');
-  const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('ASC');
+  const [sortField, setSortField] = useState<CategorySortingFieldType>('id');
+  const [sortOrder, setSortOrder] = useState<CategorySortingOrderType>('ASC');
 
   const debouncedName = useDebounce(searchName, 500);
 
@@ -122,7 +123,7 @@ export const CategoriesPage: React.FC = () => {
         sortField={sortField}
         sortOrder={sortOrder}
         onSort={(field, order) => {
-          setSortField(field as CategorySortingType);
+          setSortField(field as CategorySortingFieldType);
           setSortOrder(order);
         }}
         pageNumber={page}

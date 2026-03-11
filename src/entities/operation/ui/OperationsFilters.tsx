@@ -2,14 +2,15 @@ import React, { memo } from 'react';
 import { Input, Select, DatePicker, Row, Col } from 'antd';
 import type { Dayjs } from 'dayjs';
 import { useTranslation } from 'react-i18next';
+import { OperationsType } from '../api';
 
 const { RangePicker } = DatePicker;
 
 interface OperationsFiltersProps {
   name: string;
   setName: (v: string) => void;
-  type?: 'Cost' | 'Profit';
-  setType: (v?: 'Cost' | 'Profit') => void;
+  type?: OperationsType;
+  setType: (v?: OperationsType) => void;
   dateRange: [Dayjs, Dayjs] | null;
   setDateRange: (v: [Dayjs, Dayjs] | null) => void;
 }
