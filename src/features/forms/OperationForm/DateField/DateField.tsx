@@ -32,6 +32,7 @@ export const DateField = memo(({ className, name, disabled }: DateFieldProps) =>
         onChange={field.antd.onChange}
         onBlur={field.antd.onBlur}
         value={field.antd.value}
+        showTime
       />
     </FormItem>
   );

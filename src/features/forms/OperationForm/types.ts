@@ -7,6 +7,7 @@ export interface OperationFormValues {
   category: string;
   description: string;
   date: Dayjs;
+  type: 'Cost' | 'Profit';
 }
 
 export type OperationFormErrors = Record<keyof OperationFormValues, string>;
