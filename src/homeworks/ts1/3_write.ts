@@ -42,7 +42,7 @@
  * - category (Категория)
  * - type ('Profit')
  * */
-type Category = {
+export type Category = {
   id: string;
   name: string;
   photo?: string;

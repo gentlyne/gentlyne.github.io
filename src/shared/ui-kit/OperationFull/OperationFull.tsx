@@ -1,5 +1,6 @@
 import React from 'react';
 import './OperationFull.css';
+import { Operation } from 'src/entities/operation/types';
 
 interface OperationFullProps {
   amount: number;
@@ -7,10 +8,12 @@ interface OperationFullProps {
   title: string;
   description?: string;
   date: string;
+  onEdit: (operation: Operation) => void;
 }
 
-export const OperationFull: React.FC<OperationFullProps> = ({ amount, category, title, description, date }) => {
+export const OperationFull: React.FC<OperationFullProps> = ({ amount, category, title, description, date, onEdit }) => {
   const isExpense = amount < 0;
+
   return (
     <div className={`op-full ${isExpense ? 'op-full--expense' : 'op-full--income'}`}>
       <div className="op-full-header">
@@ -19,7 +22,11 @@ export const OperationFull: React.FC<OperationFullProps> = ({ amount, category, 
           <div className="op-full-cat">{category}</div>
           <div className="op-full-date">{date}</div>
         </div>
-        <button className="op-full-edit" aria-label="Edit">
+        <button
+          className="op-full-edit"
+          aria-label="Edit"
+          onClick={() => onEdit({ amount, category, title, description, date })}
+        >
           ✎
         </button>
       </div>
