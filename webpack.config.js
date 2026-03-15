@@ -30,7 +30,7 @@ module.exports = (_, args) => {
 
     entry: './index.tsx',
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: dist,
       publicPath:
         args.mode === 'development' ? `http://${host}:${port}/` : undefined /* <- прописать данные своего github */,
       filename: `js/[name].js`,
