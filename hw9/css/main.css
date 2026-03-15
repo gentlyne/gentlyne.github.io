@@ -49,7 +49,7 @@ code {
     }
 }
 
-.Header-module_header-yhlIH{display:flex;align-items:center;justify-content:space-between;background-color:rgba(0,0,0,0);color:var(--text-color);padding:1rem 2rem;box-shadow:0 2px 4px rgba(0,0,0,.05);border-bottom:1px solid #93c5fd}.Header-module_header__left-INj7G,.Header-module_header__center-kVvyf,.Header-module_header__right-Dn1kQ{display:flex;align-items:center;gap:1.5rem}.Header-module_header__center-kVvyf{flex:1;justify-content:center;text-align:center}.Header-module_header__right-Dn1kQ{justify-content:flex-end}
+.header-module_header-Ktyjj{display:flex;align-items:center;justify-content:space-between;background-color:rgba(0,0,0,0);color:var(--text-color);padding:1rem 2rem;box-shadow:0 2px 4px rgba(0,0,0,.05);border-bottom:1px solid #93c5fd}.header-module_header__left-HySpO,.header-module_header__center-IDYNC,.header-module_header__right-e1QKd{display:flex;align-items:center;gap:1.5rem}.header-module_header__center-IDYNC{flex:1;justify-content:center;text-align:center}.header-module_header__right-e1QKd{justify-content:flex-end}
 .logo {
   display: flex;
   align-items: center;
