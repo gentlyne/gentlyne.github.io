@@ -35,6 +35,7 @@ module.exports = (_, args) => {
         args.mode === 'development' ? `http://${host}:${port}/` : undefined /* <- прописать данные своего github */,
       filename: `js/[name].js`,
       chunkFilename: `js/[name].js`,
+      clean: false,
     },
     module: {
       rules: [
