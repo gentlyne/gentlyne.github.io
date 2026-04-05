@@ -6,6 +6,7 @@ import { OperationModal } from 'src/entities/operation/ui/OperationModal';
 import type { Operation } from 'src/entities/operation/types';
 import { useTranslation } from 'react-i18next';
 import { OperationList } from 'src/shared/ui-kit/OperationList/OperationList';
+import { AdminRoute } from 'src/app/router/AdminRoute';
 
 export const OperationsPage: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,29 +23,33 @@ export const OperationsPage: React.FC = () => {
     <Card
       title={t(`operation.name`)}
       extra={
-        <Button
-          type="primary"
-          onClick={() => {
-            setEditing(null);
-            setModalOpen(true);
-          }}
-        >
-          {t(`operation.create`)}
-        </Button>
+        <AdminRoute>
+          <Button
+            type="primary"
+            onClick={() => {
+              setEditing(null);
+              setModalOpen(true);
+            }}
+          >
+            {t(`operation.create`)}
+          </Button>
+        </AdminRoute>
       }
     >
       <OperationList />
-      {
-        <OperationModal
-          open={modalOpen}
-          initial={editing ?? undefined}
-          onSubmit={handleSubmit}
-          onCancel={() => {
-            setModalOpen(false);
-            setEditing(null);
-          }}
-        />
-      }
+      <AdminRoute>
+        {
+          <OperationModal
+            open={modalOpen}
+            initial={editing ?? undefined}
+            onSubmit={handleSubmit}
+            onCancel={() => {
+              setModalOpen(false);
+              setEditing(null);
+            }}
+          />
+        }
+      </AdminRoute>
     </Card>
   );
 };

@@ -4,6 +4,7 @@ import { OperationFull } from '../OperationFull/OperationFull';
 import './OperationList.scss';
 import { OperationModal } from 'src/entities/operation/ui/OperationModal';
 import { Operation } from 'src/entities/operation/types';
+import { AdminRoute } from 'src/app/router/AdminRoute';
 
 const BATCH_SIZE = 5;
 
@@ -78,15 +79,17 @@ export const OperationList: React.FC = () => {
           </button>
         )}
       </div>
-      <OperationModal
-        open={modalOpen}
-        initial={editing ?? undefined}
-        onSubmit={handleSubmit}
-        onCancel={() => {
-          setModalOpen(false);
-          setEditing(null);
-        }}
-      />
+      <AdminRoute>
+        <OperationModal
+          open={modalOpen}
+          initial={editing ?? undefined}
+          onSubmit={handleSubmit}
+          onCancel={() => {
+            setModalOpen(false);
+            setEditing(null);
+          }}
+        />
+      </AdminRoute>
     </>
   );
 };

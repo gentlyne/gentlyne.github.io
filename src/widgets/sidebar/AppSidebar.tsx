@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { UserOutlined, GroupOutlined, TransactionOutlined } from '@ant-design/icons';
+import { UserOutlined, TransactionOutlined, LoginOutlined } from '@ant-design/icons';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -22,6 +22,11 @@ export const AppSidebar = () => {
       key: '/profile',
       icon: <UserOutlined />,
       label: t(`profile.title`),
+    },
+    {
+      key: '/login',
+      icon: <LoginOutlined />,
+      label: t(`auth.signin.title`),
     },
   ];
 
