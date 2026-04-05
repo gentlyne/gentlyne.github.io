@@ -1,6 +1,7 @@
 import React from 'react';
 import './OperationFull.css';
 import { Operation } from 'src/entities/operation/types';
+import { AdminRoute } from 'src/app/router/AdminRoute';
 
 interface OperationFullProps {
   amount: number;
@@ -22,13 +23,15 @@ export const OperationFull: React.FC<OperationFullProps> = ({ amount, category, 
           <div className="op-full-cat">{category}</div>
           <div className="op-full-date">{date}</div>
         </div>
-        <button
-          className="op-full-edit"
-          aria-label="Edit"
-          onClick={() => onEdit({ amount, category, title, description, date })}
-        >
-          ✎
-        </button>
+        <AdminRoute>
+          <button
+            className="op-full-edit"
+            aria-label="Edit"
+            onClick={() => onEdit({ amount, category, title, description, date })}
+          >
+            ✎
+          </button>
+        </AdminRoute>
       </div>
       <div className="op-full-body">
         <div className="op-full-amount">
