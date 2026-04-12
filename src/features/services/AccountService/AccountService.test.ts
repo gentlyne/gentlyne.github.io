@@ -1,7 +1,7 @@
 import { AccountServiceImpl } from './impls/AccountServiceImpl';
 import { AccountRepository } from '../../repositories/AccountRepository';
 import { ProductType } from 'src/entities/Product';
-import { UserType } from 'src/entities/User';
+import { UserType } from 'src/entities/user';
 
 describe('AccountService', () => {
   let repository: jest.Mocked<AccountRepository>;

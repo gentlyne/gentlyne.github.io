@@ -4,11 +4,13 @@ import { Header } from 'src/shared/ui-kit/Header/Header';
 import { Logo } from 'src/shared/ui-kit/logo/logo';
 import { LanguageToggle } from 'src/shared/ui-kit/LanguageToggle/LanguageToggle';
 import { ThemeToggle } from 'src/shared/ui-kit/ThemeToggle/ThemeToggle';
-import { useAppDispatch } from 'src/hooks';
-import { logout } from 'src/features/auth/authSlice';
+
+import { UserMenu } from 'src/widgets/UserMenu/UserMenu';
+import { useAppSelector } from 'src/hooks';
+import { AuthMenu } from '../authMenu/AuthMenu';
 
 export const AppHeader = () => {
-  const dispatch = useAppDispatch();
+  const token = useAppSelector((state) => state.auth.token);
   return (
     <Header
       leftSlot={<Logo />}
@@ -16,7 +18,7 @@ export const AppHeader = () => {
         <>
           <LanguageToggle />
           <ThemeToggle />
-          <button onClick={() => dispatch(logout())}>Logout</button>
+          {!token ? <AuthMenu /> : <UserMenu />}
         </>
       }
     />

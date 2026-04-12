@@ -1,6 +1,6 @@
 import { AccountRepository } from '..';
 import { ProductType } from 'src/entities/Product';
-import { UserType } from 'src/entities/User';
+import { UserType } from 'src/entities/user';
 
 export class InMemoryAccountRepository implements AccountRepository {
   private userDiscounts = new Map<UserType, number>();

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
-import Input from 'antd/lib/input';
+import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from '../../../../shared/ui-kit/FormItem';
 import { getValidates } from '../../../../utils/validation';
@@ -26,7 +26,7 @@ export const DescriptionField = memo(({ className, name, disabled }: Description
     >
       <Input.TextArea
         disabled={disabled}
-        name="description"
+        name={name}
         onChange={field.input.onChange}
         onBlur={field.input.onBlur}
         value={field.input.value}

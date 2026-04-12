@@ -18,7 +18,6 @@ export const Default: Story = {
     <ProfileFormWrapper
       initialValues={{
         name: '',
-        about: '',
       }}
     />
   ),

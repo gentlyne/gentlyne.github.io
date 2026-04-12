@@ -1,5 +1,5 @@
 import { ProductType } from 'src/entities/Product';
-import { UserType } from 'src/entities/User';
+import { UserType } from 'src/entities/user';
 
 export interface AccountRepository {
   setUserDiscount(userType: UserType, discount: number): Promise<void>;
