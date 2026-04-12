@@ -9,7 +9,7 @@ import { isNotDefinedDate, isNotDefinedNumber, isNotDefinedString, isTooLongLeng
 
 import type { InputRef } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { I18nWrapper } from './I18nWrapper';
+import dayjs from 'dayjs';
 
 interface OperationFormWrapperProps {
   initialValues?: OperationFormValues;
@@ -22,9 +22,10 @@ interface OperationFormWrapperProps {
 const defaultValues: OperationFormValues = {
   title: '',
   amount: 0,
-  category: '',
+  category: null,
+  type: 'Cost',
   description: '',
-  date: null,
+  date: dayjs(),
 };
 
 export const OperationFormWrapper: React.FC<OperationFormWrapperProps> = ({
@@ -41,7 +42,9 @@ export const OperationFormWrapper: React.FC<OperationFormWrapperProps> = ({
 
     if (isNotDefinedNumber(values.amount)) errors.amount = t(`forms.OperationForm.amount.errors.required`);
 
-    if (isNotDefinedString(values.category)) errors.category = t(`forms.OperationForm.category.errors.required`);
+    if (!values.category) errors.category = t(`forms.OperationForm.category.errors.required`);
+
+    if (isNotDefinedString(values.type)) errors.category = t(`forms.OperationForm.type.errors.required`);
 
     if (isNotDefinedDate(values.date)) errors.date = t(`forms.OperationForm.date.errors.required`);
 
@@ -52,9 +55,7 @@ export const OperationFormWrapper: React.FC<OperationFormWrapperProps> = ({
   };
 
   const handleSubmit = async (values: OperationFormValues, helpers: FormikHelpers<OperationFormValues>) => {
-    console.log('Operation submit:', values);
     await onSubmit?.(values);
-    helpers.resetForm();
     helpers.setSubmitting(false);
   };
 
@@ -62,16 +63,19 @@ export const OperationFormWrapper: React.FC<OperationFormWrapperProps> = ({
   const inputRef = useRef<InputRef | null>(null);
 
   return (
-    <Formik<OperationFormValues> initialValues={initialValues} validate={validate} onSubmit={handleSubmit}>
+    <Formik<OperationFormValues>
+      initialValues={initialValues}
+      validate={validate}
+      onSubmit={handleSubmit}
+      enableReinitialize
+    >
       {(formManager) => (
-        <I18nWrapper>
-          <OperationForm
-            formElement={formRef}
-            formManager={formManager}
-            autoFocusElement={inputRef}
-            disabled={disabled}
-          />
-        </I18nWrapper>
+        <OperationForm
+          formElement={formRef}
+          formManager={formManager}
+          autoFocusElement={inputRef}
+          disabled={disabled}
+        />
       )}
     </Formik>
   );

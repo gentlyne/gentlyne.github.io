@@ -1,22 +1,22 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { SignInPage } from 'src/pages/auth/SignInPage';
+import { SignUpPage } from 'src/pages/auth/SignUpPage';
 import { ProfilePage } from 'src/pages/profile/ProfilePage';
 import { OperationsPage } from 'src/pages/operations/OperationsPage';
-import { AppLayout } from 'src/widgets/layout/AppLayout';
 import { ProtectedRoute } from './ProtectedRoute';
-import { LoginPage } from 'src/pages/auth/LoginPage';
-import { RegisterForm } from 'src/features/forms/RegisterForm';
-import { RegisterFormThunk } from 'src/features/forms/RegisterForm/RegisterFormThunk';
+import { AppLayout } from 'src/widgets/layout/AppLayout';
+import { CategoriesPage } from 'src/pages/categories/CategoriesPage';
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup-toolkit" element={<RegisterForm />} />
-          <Route path="/signup-thunk" element={<RegisterFormThunk />} />
           <Route path="/" element={<OperationsPage />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
           <Route
             path="/profile"
             element={

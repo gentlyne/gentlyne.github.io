@@ -1,13 +1,17 @@
 import { Navigate } from 'react-router-dom';
-import { useAppSelector } from '../../hooks';
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { useAppSelector } from 'src/hooks';
 
-export const ProtectedRoute = ({ children }: any) => {
-  const token = useAppSelector((s) => s.auth.token);
+interface Props {
+  children: ReactNode;
+}
+
+export const ProtectedRoute = ({ children }: Props) => {
+  const token = useAppSelector((state) => state.auth.token);
 
   if (!token) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/signin" />;
   }
 
-  return children;
+  return <>{children}</>;
 };

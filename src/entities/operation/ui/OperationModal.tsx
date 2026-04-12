@@ -1,14 +1,16 @@
 import { Modal } from 'antd';
 import dayjs from 'dayjs';
 import { Operation } from '../types';
+import { Category } from 'src/entities/category/types';
 import React from 'react';
-import { OperationFormValues } from 'src/features/forms/OperationForm/types';
+import { OperationFormValues } from 'src/features/forms/OperationForm';
 import { OperationFormWrapper } from 'src/features/wrappers/OperationFormWrapper';
 import { useTranslation } from 'react-i18next';
 
 interface OperationModalProps {
   open: boolean;
   initial?: Operation;
+  categories: Category[];
   onSubmit: (v: any) => void;
   onCancel: () => void;
 }
@@ -16,11 +18,12 @@ interface OperationModalProps {
 export const OperationModal: React.FC<OperationModalProps> = ({ open, initial, onSubmit, onCancel }) => {
   const initialValues: OperationFormValues | undefined = initial
     ? {
-        title: initial.title,
+        title: initial.name,
         amount: initial.amount,
-        category: initial.category,
-        description: initial.description ?? '',
+        category: initial.category?.id,
+        description: initial.desc ?? '',
         date: initial.date ? dayjs(initial.date) : dayjs(),
+        type: initial.type,
       }
     : undefined;
 

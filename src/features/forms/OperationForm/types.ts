@@ -4,10 +4,10 @@ import { FormProps } from 'src/features/forms/types';
 export interface OperationFormValues {
   title: string;
   amount: number;
-  category: string;
+  category: string | null;
   description: string;
   date: Dayjs;
-  type?: 'Cost' | 'Profit';
+  type: 'Cost' | 'Profit';
 }
 
 export type OperationFormErrors = Record<keyof OperationFormValues, string>;

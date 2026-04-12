@@ -23,21 +23,6 @@ export const AppSidebar = () => {
       icon: <UserOutlined />,
       label: t(`profile.title`),
     },
-    {
-      key: '/login',
-      icon: <LoginOutlined />,
-      label: t(`auth.signin.title`),
-    },
-    {
-      key: '/signup-toolkit',
-      icon: <UserAddOutlined />,
-      label: 'Sign Up (Toolkit)',
-    },
-    {
-      key: '/signup-thunk',
-      icon: <UserAddOutlined />,
-      label: 'Sign Up (Thunk)',
-    },
   ];
 
   return (
