@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.Title-module_root-EV4VU{font-family:Arial,sans-serif;font-weight:600;font-size:1.25rem;color:#111;margin-bottom:.5rem;display:inline-flex;align-items:center;gap:.25rem}.Title-module_required-J2GKV::after{content:"*";color:#e74c3c;margin-left:.25rem;font-size:1rem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header-module_header-Ktyjj{display:flex;align-items:center;justify-content:space-between;background-color:rgba(0,0,0,0);color:var(--text-color);padding:1rem 2rem;box-shadow:0 2px 4px rgba(0,0,0,.05);border-bottom:1px solid #93c5fd}.header-module_header__left-HySpO,.header-module_header__center-IDYNC,.header-module_header__right-e1QKd{display:flex;align-items:center;gap:1.5rem}.header-module_header__center-IDYNC{flex:1;justify-content:center;text-align:center}.header-module_header__right-e1QKd{justify-content:flex-end}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #4a90e2;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.language-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.language-toggle__button {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+&:hover:not(&--active) {
+    background-color: var(--border-color);
+}
+
+.language-toggle__button--active {
+    background-color: var(--card-bg);
+    font-weight: 600;
+    cursor: default;
+}
+
+
+.theme-toggle {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+/* light theme */
+body.TgQa33lrPxp89aTfKSjz {
+  background-color: #ffffff;
+  color: #1e293b;
+  --background-color: #ffffff;
+  --text-color: #1e293b;
+  --border-color: #93C5FD;
+}
+
+/* dark theme */
+body.GHiNpHAkHoiv5oQ56ECn {
+  background-color: #282c34;
+  color: #f8fafc;
+  --background-color: #282c34;
+  --text-color: #f8fafc;
+  --border-color: #93C5FD;
+}
+
+
+
+
+/*# sourceMappingURL=main.css.map*/
