@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { UserOutlined, TransactionOutlined, LoginOutlined } from '@ant-design/icons';
+import { UserOutlined, TransactionOutlined, LoginOutlined, UserAddOutlined } from '@ant-design/icons';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -27,6 +27,16 @@ export const AppSidebar = () => {
       key: '/login',
       icon: <LoginOutlined />,
       label: t(`auth.signin.title`),
+    },
+    {
+      key: '/signup-toolkit',
+      icon: <UserAddOutlined />,
+      label: 'Sign Up (Toolkit)',
+    },
+    {
+      key: '/signup-thunk',
+      icon: <UserAddOutlined />,
+      label: 'Sign Up (Thunk)',
     },
   ];
 
