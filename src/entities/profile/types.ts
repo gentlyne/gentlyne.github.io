@@ -1,7 +1,8 @@
+export type UserRole = 'admin' | 'user';
+
 export interface Profile {
   id: string;
-  email: string;
   name: string;
-  commandId: string;
-  signUpDate: string;
+  email: string;
+  role: UserRole;
 }
