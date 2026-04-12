@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.Title-module_root-EV4VU{font-family:Arial,sans-serif;font-weight:600;font-size:1.25rem;color:#111;margin-bottom:.5rem;display:inline-flex;align-items:center;gap:.25rem}.Title-module_required-J2GKV::after{content:"*";color:#e74c3c;margin-left:.25rem;font-size:1rem}
+
+
+
+
+
+
+
+
+
+
+.op-full {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #93C5FD;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
+  width: 700px;
+}
+
+.op-full--expense .op-full-amount {
+  color: #e53e3e;
+}
+
+.op-full--income .op-full-amount {
+  color: #38a169;
+}
+
+.op-full-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.op-full-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.op-full-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d2d2d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.op_full-cat {
+  font-size: 14px;
+  color: #6b6b6b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.op-full-date {
+  font-size: 13px;
+  color: #8a8a8a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.op-full-edit {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #0b22eb;
+  opacity: 0.7;
+}
+
+.op-full-edit:hover {
+  opacity: 1;
+}
+
+.op-full-body {
+  margin-top: 16px;
+}
+
+.op-full-amount {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.op-full-desc {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.4;
+  overflow: hidden;
+  width: 600px;
+}
+
+.OperationList_operation-list-oOCDQ{display:flex;flex-direction:column;gap:12px}.OperationList_operation-list__item-AdJ6B{width:100%}.OperationList_operation-list__sentinel-gabdN{height:1px}.OperationList_operation-list__load-more-JnSU6{align-self:center;margin:16px 0;padding:8px 16px;border-radius:6px;border:1px solid #93c5fd;background-color:var(--card-bg);color:var(--text-color);cursor:pointer}.OperationList_operation-list__load-more-JnSU6:hover{opacity:.9}
+.header-module_header-Ktyjj{display:flex;align-items:center;justify-content:space-between;background-color:rgba(0,0,0,0);color:var(--text-color);padding:1rem 2rem;box-shadow:0 2px 4px rgba(0,0,0,.05);border-bottom:1px solid #93c5fd}.header-module_header__left-HySpO,.header-module_header__center-IDYNC,.header-module_header__right-e1QKd{display:flex;align-items:center;gap:1.5rem}.header-module_header__center-IDYNC{flex:1;justify-content:center;text-align:center}.header-module_header__right-e1QKd{justify-content:flex-end}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #4a90e2;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.language-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.language-toggle__button {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+&:hover:not(&--active) {
+    background-color: var(--border-color);
+}
+
+.language-toggle__button--active {
+    background-color: var(--card-bg);
+    font-weight: 600;
+    cursor: default;
+}
+
+
+.theme-toggle {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+/* light theme */
+body.TgQa33lrPxp89aTfKSjz {
+  background-color: #ffffff;
+  color: #1e293b;
+  --background-color: #ffffff;
+  --text-color: #1e293b;
+  --border-color: #93C5FD;
+}
+
+/* dark theme */
+body.GHiNpHAkHoiv5oQ56ECn {
+  background-color: #282c34;
+  color: #f8fafc;
+  --background-color: #282c34;
+  --text-color: #f8fafc;
+  --border-color: #93C5FD;
+}
+
+
+
+
+/*# sourceMappingURL=main.css.map*/
